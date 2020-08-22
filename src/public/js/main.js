@@ -10,7 +10,9 @@ $(function (){
     // Captura de eventos
     $messageForm.submit(e =>{
         e.preventDefault();        
-        socket.emit('send message', $messageBox.val());
+        if($messageBox.val() != ''){
+            socket.emit('send message', $messageBox.val());
+        }        
         $messageBox.val('');
         
     })
@@ -21,5 +23,5 @@ $(function (){
 
 })
 
-const socket = io();
+
 
